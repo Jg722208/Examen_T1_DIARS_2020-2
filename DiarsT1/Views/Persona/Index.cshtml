@@ -1,0 +1,41 @@
+﻿@{ List<Persona> person = ((List<Persona>)ViewBag.Accounts); }
+
+<h1>Lista de personas</h1>
+<a href="/account/create">Registro persona</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Fecha de nacimiento</th>
+            <th>DNI</th>
+            <th>Genero</th>
+            <th>Ciudad</th>
+            <th>Direccion</th>
+            <th>Correo electronico</th>
+            <th>Username</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < person.Count; i++)
+        {
+            Persona item = person[i];
+<tr>
+    <td>Body1</td>
+    <td>@item.Nombre</td>
+    <td>@item.Apellido</td>
+    <td>@item.FechaNacimiento</td>
+    <td>@item.Dni</td>
+    <td>@item.Genero</td>
+    <td>@item.IdCiudad</td>
+    <td>@item.Username</td>
+    <td>@item.Correo</td>
+    <td>@item.Password</td>
+    <td>
+        <a href="/Account/edit?id=@item.Id">Editar</a> /
+        <a href="/Account/delete?id=@item.Id">Eliminar</a>
+    </td>
+</tr>}
+    </tbody>
+</table>

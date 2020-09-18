@@ -1,0 +1,75 @@
+﻿@{ var person = (Persona)Model; }
+
+<h1>Registrar Persona</h1>
+
+<div class="row">
+    <div class="col-6 offset-3">
+        <form action="/persona/create" method="post">
+            <div class="form-group">
+                <label>Nombre</label>
+                <input class="form-control" required name="Nombre" value="@person.Nombre" />
+                @Html.ValidationMessage("Nombre")
+            </div>
+
+            <div class="form-group">
+                <label>Apellido</label>
+                <input class="form-control" required name="Apellido" value="@person.Apellido" />
+                @Html.ValidationMessage("Apellido")
+            </div>
+
+            <div class="form-group">
+                <label>FechaNacimiento</label>
+                <input class="form-control" required name="FechaNacimiento" value="@person.FechaNacimiento" />
+                @Html.ValidationMessage("FechaNacimiento")
+            </div>
+
+            <div class="form-group">
+                <label>Dni</label>
+                <input class="form-control" required name="Dni" value="@person.Dni" />
+                @Html.ValidationMessage("Dni")
+            </div>
+
+            <div class="form-group">
+                <label>Genero</label>
+                <input class="form-control" required name="Genero" value="@person.Genero" />
+                @Html.ValidationMessage("Genero")
+            </div>
+
+            <select class="form-control" name="Ciudad">
+                <option value="Seleccionar Ciudad"></option>
+                @foreach (var item in ViewBag.Ciudades)
+                {
+                    if (item.Id == Model.IdCiudad)
+                    {
+                     <option selected value="@item.Id">@item.Nombre</option>
+                    }
+                    else
+                    {
+                     <option value="@item">@item.Nombre</option>
+                    }
+                }
+            </select>
+
+            <div class="form-group">
+                <label>Username</label>
+                <input class="form-control" required name="Username" value="@person.Username" />
+                @Html.ValidationMessage("Username")
+            </div>
+
+            <div class="form-group">
+                <label>Correo</label>
+                <input class="form-control" required name="Correo" value="@person.Correo" />
+                @Html.ValidationMessage("Correo")
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input class="form-control" required name="Password" value="@person.Password" />
+                @Html.ValidationMessage("Password")
+            </div>
+
+            <button class="btn btn-primary">Registrar</button>
+
+        </form>
+    </div>
+</div>
